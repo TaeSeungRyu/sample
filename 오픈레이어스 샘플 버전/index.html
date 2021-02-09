@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html style="width: 100%; height:100%">
+    <head>
+        <meta charset="utf-8">
+        <title>오픈 레이어스</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        
+        <style>.area {
+                position: absolute;
+                z-index: 9928573452;
+                top: 1%;
+                right: 1%;
+                width: 325px;
+                height: 415px;
+                border: 3px solid rgb(185, 144, 144);
+                background-color: rgba(76, 76, 78, 0.64);
+                padding: 9px;
+            }</style>
+        <script>
+		
+		function addMarkers() {
+			var lat = document.getElementById('lat').value;
+			var log = document.getElementById('log').value;
+			var name = document.getElementById('name').value || '비어진 이름이라 제가 넣음';
+			var color = document.getElementById('color').value || 'rgba( 52, 52, 52  , 0.9)';
+			var color2 = document.getElementById('color2').value || 'rgba( 255, 255, 255, 0.9)';
+			var color3 = document.getElementById('color3').value || 2;
+			var option = {
+				font_size: 13,
+				font_color: color,
+				font_background_color: color2,
+				font_background_stroke: color3,
+			};
+			gisMap.addMark(lat, log, name, option);
+		}		
+		</script>
+
+    <link href="/new_map.css" rel="stylesheet">
+    <script src="/new_map.js"></script></head>
+
+    <body style="width: 100%; height:100%">
+        <div id="map"></div>
+        <div id="testArea" class="area">
+            <div style="margin-bottom: 5px;">
+                <input type="text" placeholder="경도" class="form-control" style="width: 49%;display: inline-block;" id="lat" value="126.7606">
+                <input type="text" placeholder="위도" class="form-control" style="width: 49%;display: inline-block;" id="log" value="37.4983">
+            </div>
+            <div style="margin-bottom: 5px;">
+                <input type="text" placeholder="이름" class="form-control" style="margin-bottom: 3px;" id="name">
+                <input type="text" placeholder="이름 색깔, rgba( 255, 202, 202, 0.86)" class="form-control" value="" id="color">
+                <input type="text" placeholder="배경 색상, rgba( 255, 202, 202, 0.36)" class="form-control" value="" id="color2">
+                <input type="number" placeholder="두깨, 2" class="form-control" value="" id="color3">
+            </div>
+            <div id="desc" style="display: none;"></div>
+            <input type="button" value="등록" class="btn btn-primary btn-sm" onclick="addMarkers()" style="float: right;">
+        </div>
+        <script src="/OPEN_LAYERS.77de5100.js"></script>
+    </body>
+</html>
+
+<script>
+	gisMap.init('map', 126.7606, 37.4983);
+	
+gisMap.clickEventer(function (arg) {
+  
+		console.log(arg, arg.get('_id'));
+  
+		gisMap.removeWithId(arg.get('_id'));
+
+	});
+</script>
+

@@ -11,7 +11,7 @@ import VectorSource from 'ol/source/Vector';
 import VectorLayer  from 'ol/layer/Vector.js';
 
 import GeoJSON from 'ol/format/GeoJSON.js';
-import koreaPos from './korea.json'
+import koreaPos from './korea.json'  //korea.json 파일을 경로에 넣어주셔야 합니다!!!!
 
 import Overlay from 'ol/Overlay';
 

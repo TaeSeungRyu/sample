@@ -1,0 +1,31 @@
+{
+  "name": "electron_study",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:osx": "electron-builder --mac",
+    "build:linux": "npm run build:linux32 && npm run build:linux64",
+    "build:linux32": "electron-builder --linux --ia32",
+    "build:linux64": "electron-builder --linux --x64",
+    "build:win": "npm run build:win32 && npm run build:win64",
+    "build:win32": "electron-builder --win portable --ia32",
+    "build:win64": "electron-builder --win portable --x64",
+    "postinstall": "install-app-deps"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.1.7",
+    "electron-builder": "^21.2.0",
+    "electron-winstaller": "^4.0.0"
+  },
+  "description": "설명 블라블라블라.....",
+  "dependencies": {
+    "aws-sdk": "^2.595.0",
+    "electron-packager": "^14.2.1",
+    "electron-root-path": "^1.0.16",
+    "electron-squirrel-startup": "^1.0.0",
+    "sqlite3": "^4.1.1"
+  }
+}

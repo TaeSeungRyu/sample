@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Electron Std </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script>
+   //jquery를 전역객체로 사용
+   window.$ = window.jQuery = require("./jquery.js");
+  </script>
+  <script src = "util.js"></script>
+  <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel="stylesheet" />
+</head>
+
+<body class='row' style='padding:1%;width:99.99%'>
+
+  <div class='col-md-6'>
+    <div class='row'>		
+      <div class='col-md-6'>
+          <input type='text' class='form-control' id='NAME' />
+          <input type='button' value='초기세팅' class='btn btn-default info' style='float:right; margin-top: 3%;margin-left: 1%;background: #f4caff' onclick="goback()"/>	  
+          <input type='button' value='추가' class='btn btn-primary adder' style='float:right; margin-top: 3%;margin-left: 1%;' onclick="alterData(1)"/>	  
+          <input type='button' value='수정' class='btn btn-success info' style='float:right; margin-top: 3%;margin-left: 1%;' onclick="alterData(2)"/>
+          <input type='button' value='삭제' class='btn btn-warning info' style='float:right; margin-top: 3%;' onclick="alterData(3)"/>
+      </div>
+      <div class='col-md-6'>
+          <textArea class='form-control' style='resize:none;min-height:250px;' id='DESC'></textArea>
+      </div>		
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <table class='table table-bordered' id='dataTable'>
+
+    </table>
+  </div>
+</body>
+
+
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">문의창</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>변경 하시겠습니까?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick='gotoDb()'>Yes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>
+<script>
+let idx = -1;  //고유 인덱스 값
+const dataJson = {};  //데이터를 주고받을 json 변수
+const { ipcRenderer } = require('electron');
+
+ipcRenderer.send('select', '');  //네이티브js에게 요청한다.
+
+ipcRenderer.on('reply', (event, arg) => {   //네이티브js로부터 받는 녀석
+  $('#dataTable').children().remove();
+  $('#dataTable').append('<tr> <th>제목</th> <th>내용</th> <th>일자</th> </tr>');
+  if(arg && arg.length > 0){ //넘어온 데이터를 테이블 테그에 그리는 기능
+    arg.forEach(element => {
+      $('#dataTable').append(
+        $('<tr>').attr({class:'nodes',idx:element.IDX}).append(
+          $('<td>').css({color:'blue',cursor:'pointer'}).text(element.NAME).click(function(){  //대상 선택 기능
+            $('#NAME').val(element.NAME);
+            $('#DESC').val(element.DESC);  
+            idx = element.IDX;
+            setting2();
+            hover(idx);
+          }),
+          $('<td>').text( smalling(element.DESC) ),
+          $('<td>').text(element.DATE)
+        )
+      );
+    });
+  }
+})
+
+//버튼 세팅1(삭제,수정,초기 버튼을 가림 / 등록버튼을 보이게함)
+function setting1(){
+  $('.info').hide();
+  $('.adder').show();
+}
+
+//버튼 세팅2(버튼 세팅1의 반대 기능)
+function setting2(){
+  $('.adder').hide();
+  $('.info').show();
+}
+
+setting1();
+
+//등록, 수정, 삭제 버튼을 누르면 동작하는 기능
+function alterData(arg){
+  dataJson.NAME = $('#NAME').val();
+  dataJson.DESC = $('#DESC').val();
+  dataJson.DATE = yymmddhhmmss();
+  dataJson.type = arg;
+  dataJson.IDX = idx;
+  $('.modal').modal('show');
+}
+
+//변경하시겠습니까? 에서 yes를 선택하면 동작하는 함수
+function gotoDb(){
+  ipcRenderer.send('alter', dataJson); 
+  ipcRenderer.send('select', '');
+  $('.modal').modal('hide');
+  goback();
+}
+
+//초기화 기능
+function goback(){
+  $('#NAME').val('');
+  $('#DESC').val('');  
+  setting1();
+  hover(-1);
+}
+
+//테이블을 선택하면 해당 tr테그의 백그라운드 색상을 바꾸는 기능
+function hover(idx){
+  $('.nodes').css('background','none');
+  $('.nodes').each(function(){
+      let idx_ = $(this).attr('IDX');
+      if(idx == idx_){
+        $(this).css('background','#8ae4ff');
+      }
+  });
+}
+
+</script>
+
+
+

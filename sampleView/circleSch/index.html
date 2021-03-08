@@ -3,9 +3,52 @@
 <body>
 <div id="myCanvas" style="width:35%;height:500px;float:left"></div>
 <div style="text-align:left;width:40%;float:left;padding:2rem;"> 
+
 <div style='color : blue'>1. 원형 내부 스케줄은 더블클릭시 사라집니다.</div>  
 <div style='color : blue'>2. 스케줄 추가는 우측 매뉴에서 아이템을 클릭하고 원형 스케줄에 드래그 합니다.</div>  
 <div style='color : blue'>3. 반응형을 지원하나 스크롤이 생긴 경우는 아직 지원되지 않습니다.</div>  
-<div style='color : blue'>4. 기본으로 만든 함수의 내용은 아래와 같습니다.</div>  
+<div> 4. 여기서 조작은 <span style="color : red">할 수 없으나</span> 제공되는 옵션입니다.
+    <textArea style="width: 100%; height: 350px;font-size: 12px;">
+let option = {                
+    beforWorking : function(){  //스케줄러를 만들기 전 행동.
+        console.log('befor')
+    },
+    showPrinter: true, //디버깅용 버튼을 만듭니다.
+
+    lineColor :'#aaaaaa',  //내부 선 색깔 입니다.
+    lineWidth : 0.7,  //내부 선 두께 입니다.
+    lineShow : true,   //내부 선 표시여부 입니다.
+
+    circleColor : '#aaaaaa',   //원형 색깔 입니다.
+    circleWidth : 3,   //원형 선 두께 입니다.
+
+    sectorShow : false,  //부채꼴 테두리 입니다.
+    sectorWidth : 3,  // 부채꼴 테두리 두께 입니다.
+    sectorColor : 'white',  //부채꼴 테두리 색상 입니다.
+
+    timeColor : '#aaaaaa',   //외부 시간 색깔  입니다.
+    timeFontStyle : '21px sans-serif',  //외부 시간 글씨 타입 입니다.
+    timeTextPadding : 2,  //외부 시간 여백입니다.(양수면 왼쪽, 음수면 오른쪽)
+
+    innerTextShow : true,  //내부 글씨 표출여부 입니다.
+    innerFontColor : 'white', //내부 글씨 색깔 입니다.
+    innerTextPadding : -5, //내부 글씨 여백입니다.(양수면 왼쪽, 음수면 오른쪽)
+    innerFontStyle : '13px sans-serif',  //내부 글씨 타입 입니다.
+
+    middleCicleRate : 0.18,  //중앙 원 크기 비율입니다.
+    middleFontOnOff : true,  //중앙 시간을 표시할지말지 여부 입니다.
+    middleFontSize : 14,  //중앙 글씨 크기 입니다.
+    middleFontPadding : 5,  //중앙 글씨 여백 입니다. (양수면 왼쪽, 음수면 오른쪽)
+
+    afterWorking : function(timeData){  //스케줄러가 다 만들어지고 나서의 행동.
+        console.log('after',timeData)
+    }
+}  
+    </textArea>
+</div>
+<br>
+<div style='color : blue'>5. 아래는 콘솔에서 사용 가능한 함수 입니다.</div>  
+
+  
 <div>rts06069.getTimePureData(); //가공되지 않는 순수 시간과 관련된 값을 반환 합니다.</div> <div>rts06069.getTimeData(); //시간단위로 값을 반환 합니다.</div> <div>rts06069.getSummeryData(); //스케줄을 그룹핑하여 시간단위로 반환 합니다.</div> <div>rts06069.exportImage('사진.png'); //이미지를 출력합니다. 이름은 옵셔널 입니다.</div> <div>rts06069.getImageData(function(blobData){ console.log(blobData) }); //이미지를 블랍으로 받습니다.</div> <div>rts06069.clearAll() //스케줄 내부를 초기화 합니다.</div> <div>rts06069.resizeOnOff = true //반응형 여부를 설정 합니다.</div> </div> 
 </body></html><script src="원형 시간표.65ced07c.js"></script><script></script>

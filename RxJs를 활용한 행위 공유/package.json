@@ -1,0 +1,19 @@
+{
+  "name": "rxjsTest",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.12.5",
+    "rxjs": "^6.6.7",
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/plugin-syntax-import-meta": "^7.10.4"
+  }
+}

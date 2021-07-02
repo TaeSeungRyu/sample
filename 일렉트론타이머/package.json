@@ -1,0 +1,30 @@
+{
+  "name": "diskcontroller",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:osx": "electron-builder --mac",
+    "build:linux": "npm run build:linux32 && npm run build:linux64",
+    "build:linux32": "electron-builder --linux --ia32",
+    "build:linux64": "electron-builder --linux --x64",
+    "build:win": "npm run build:win32 && npm run build:win64",
+    "build:win32": "electron-builder --win portable --ia32",
+    "build:win64": "electron-builder --win portable --x64"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.1.5",
+    "electron-builder": "^21.2.0",
+    "electron-winstaller": "^4.0.0"
+  },
+  "description": "단순 시간 타이머 입니다. : )",
+  "dependencies": {
+    "electron-packager": "^15.2.0",
+    "electron-root-path": "^1.0.16"
+  },
+  "build": {
+      "icon": "my_icon.ico"
+  }
+}

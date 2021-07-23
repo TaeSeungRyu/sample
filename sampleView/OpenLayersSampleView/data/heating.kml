@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <Document>
+        <name>2019 히트맵</name>
+        <Folder>
+            <name>AREA</name>
+            <Placemark id="아이디1">
+                <name>1</name>
+                <magnitude>5.9</magnitude>
+                <Point>
+                    <coordinates>126.11,37.12</coordinates>
+                </Point>
+            </Placemark>
+            <Placemark id="아이디2">
+                <name>2</name>
+                <magnitude>25.9</magnitude>
+                <Point>
+                    <coordinates>126.23,37.42</coordinates>
+                </Point>
+            </Placemark>      
+            <Placemark id="아이디3">
+                <name>3</name>
+                <magnitude>5.9</magnitude>
+                <Point>
+                    <coordinates>126.45,37.62</coordinates>
+                </Point>
+            </Placemark>    
+            <Placemark id="아이디4">
+                <name>4</name>
+                <magnitude>5.9</magnitude>
+                <Point>
+                    <coordinates>126.485,37.332</coordinates>
+                </Point>
+            </Placemark>                                  
+            <Placemark id="아이디5">
+                <name>5</name>
+                <magnitude>5.9</magnitude>
+                <Point>
+                    <coordinates>126.14285,37.1332</coordinates>
+                </Point>
+            </Placemark>            
+        </Folder>
+    </Document>
+</kml>            

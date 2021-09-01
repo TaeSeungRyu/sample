@@ -1,0 +1,94 @@
+.RtsTimeLineBody{
+    width: 99%;
+    overflow-y: auto;    
+}
+
+.RtsTimeLine{
+    width: max-content;
+}
+
+.imgChild{
+    display: block;
+    user-select: none;
+    border: 1px solid gray;    
+    background-image : none;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.timeLineChild{
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: inline-block;
+    cursor : pointer;
+    user-select: none;
+}
+
+.timeLineChild:hover{
+    background-color: #f5f1e2;
+}
+
+.thisClicked{
+    background-color: #fff3c4;
+}
+
+.withClicked{
+    border : 2px solid rgb(235, 91, 91);
+}
+
+.fadeCss{
+    background-color: #e6e6e6;
+}
+
+.prvClass{
+    min-width: 15rem;
+    min-height: 15rem;
+    max-width: 99%;
+    max-height: 50%;
+    display: inline-block;
+    border: 1px solid gray;
+    margin: 0.2rem;
+}
+
+.RtsitemArea{
+    display: inline-block;
+}
+
+
+.Rtscopied{
+    width: max-content;
+    border : 2px solid #c1c1c1;
+}
+
+.RtscopiedExplain{
+    text-align: left;
+    display: block;
+    width: auto;
+    padding: 0.25rem;
+}
+
+.copiedElement{
+    display: inline-block; 
+    user-select: none;
+}
+
+.addOnStyle{
+    margin-top: 1.5rem;
+}
+
+.curtain{
+    position: absolute;
+    z-index: 1213;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    padding: 15%;
+    font-size: 3rem;
+    background-color : rgba(28, 88, 204, 0.5);
+    display: none;
+    color: white;
+    font-weight: bold;
+}

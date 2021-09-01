@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="jqf.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" rel="stylesheet" crossorigin>
+        <title>영상편집</title>
+        <script src="core.js"></script>
+        <link rel="stylesheet" href="core.css">
+    </head>
+    <body>
+        <h1>Simple 영상편집</h1>
+        <h5>동영상(mp4)만 넣으세요.</h5>
+        <input type='file' id="file"/>
+        <div id='targetElement' style="text-align: center;"></div>
+        <div style="position: fixed;right: 5rem; top: 2rem;padding: 1.5rem; border: 3px solid gray;">
+            <h4 style='color: #4141ff;'>Control box</h4>
+            <button type="button" type='button' id='deleteBtn' class='btn btn-danger btn-sm'>선택 구간 삭제</button>
+            <button type="button" type='button' id='undo' class='btn btn-warning btn-sm'>구간 삭제 취소</button>
+            <br><br>
+            <button type="button" type='button' id='play' class='btn btn-success btn-sm'>재생</button>
+            <br><br>
+            <button type="button" type='button' id='cutting' class='btn btn-primary btn-sm'>잘라낸 뒤 프레임생성</button>
+            <br><br>
+            <button type="button" type='button' id='apply' class='btn btn-info btn-sm'>최종적용 & 영상 생성</button>
+            <div id='downloadLinkArea'>
+                <br>
+                <h4>* 생성된 파일 목록</h4>
+            </div>
+        </div>
+
+        <div class='curtain'>작업을 진행 합니다.....</div>
+    </body>
+</html>

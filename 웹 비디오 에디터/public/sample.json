@@ -1,0 +1,47 @@
+{
+    "filename": "./sample.mp4",
+    "title": "",
+    "artist": "",
+    "album": "",
+    "track": "",
+    "date": "",
+    "synched": true,
+    "duration": {
+        "raw": "00:02:05.95",
+        "seconds": 125
+    },
+    "video": {
+        "container": "mov",
+        "bitrate": 669,
+        "stream": 0,
+        "codec": "h264",
+        "resolution": {
+            "w": 320,
+            "h": 240
+        },
+        "resolutionSquare": {
+            "w": 320,
+            "h": 240
+        },
+        "aspect": {
+            "x": 4,
+            "y": 3,
+            "string": "4:3",
+            "value": 1.3333333333333333
+        },
+        "rotate": 0,
+        "fps": 15,
+        "pixelString": "1:1",
+        "pixel": 1
+    },
+    "audio": {
+        "codec": "aac",
+        "bitrate": "383",
+        "sample_rate": 48000,
+        "stream": 0,
+        "channels": {
+            "raw": "",
+            "value": ""
+        }
+    }
+}

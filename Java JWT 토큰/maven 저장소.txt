@@ -1,0 +1,16 @@
+#gradle 기준
+implementation 'io.jsonwebtoken:jjwt:0.9.1'
+implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+
+#maven 기준
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt</artifactId>
+    <version>0.9.1</version>
+</dependency>
+
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.3.0</version>
+</dependency>

@@ -13,7 +13,7 @@ preload 방식으로 구현되어 있으며 윈도우 64환경에 최적화 되�
 <br> 
 설정 및 이력관리에서 히스토리를 보거나, 삭제하거나, 다운로드 받거나 초기화 할 수 있습니다.<br>
 가장 마지막에 추첨한 목록이 위에 나타나게 됩니다.<br>
-<img src="https://user-images.githubusercontent.com/17187262/148720667-e6aa5c92-5edc-418a-9761-6568ac3e27a5.PNG" />
+<img src="https://user-images.githubusercontent.com/17187262/148720710-98d07e5b-1d58-4417-9ac7-28f7a8c68bd4.PNG" />
 <br>
 <br> 
 main.html파일에는 url값이 존재 합니다.<br>

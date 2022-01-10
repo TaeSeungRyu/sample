@@ -1,0 +1,671 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTDHTML4.0Transitional//EN">
+<html>
+
+    <head>
+        <title>Drawing lots</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" href="./fbxotmdvkqlzhs.ico"/>
+        <script src="js/jq.js"></script>
+        <script src="js/bts.js"></script>
+        <link href="css/bts.css" rel="stylesheet">
+        <link rel="stylesheet" href="font/css/all.css">
+        <style>
+            @font-face {font-family : singleDay; src:url(css/SingleDay-Regular.ttf);}
+            @font-face {font-family : cuteFont; src:url(css/CuteFont-Regular.ttf);}
+            html {
+                height: 99%;
+                background-color: black;
+            }
+            body {
+                font-size: 1.5rem;
+                color: #d7d7d7;
+                background-color: rgb(32, 29, 29);
+                height: 100%;
+                font-family: 'cuteFont' ;
+            }
+         
+            .flx-head {
+                font-family: 'singleDay';
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: center;
+                padding: 1rem;
+                height: 12.45%;
+                align-items: center;
+                background-image: url('space.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;              
+                background-color: rgba(255, 255, 255, 0.12);
+                background-blend-mode: overlay;  
+                margin-bottom: 0.5rem;
+                user-select: none;
+            }
+            #nav-tabContent{
+                height: 100%;
+                position: relative;
+            }
+            .flx-body {
+                padding: 0.35rem;
+                height: 80%;
+            }
+
+            .flx-body::before{
+                content: "";
+                background-image: url('gifs.gif');
+                background-repeat: repeat;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                left: 0px;
+                opacity: 0.5;
+            }   
+
+            .title {
+                font-size: 3.05rem;
+                text-shadow: 1px 1px 1px rgb(173, 173, 173), 0 4px 1px rgba(0, 0, 0, 0.25), 4px 4px 5px rgba(0, 0, 0, 0.7), 0 0 7px rgba(0, 0, 0, 0.4);
+            }
+            .table-bordered tr {
+                vertical-align: middle;
+            }
+            .table-bordered tr td,
+            .table-bordered tr th {
+                color: white;
+                vertical-align: middle;
+            }
+
+            .historyTables tr:hover {
+                background-color: rgb(156, 156, 156);
+            }
+
+            .tab-pane {
+                padding: 0.65rem;
+                height: 99.25%;
+            }
+            nav{
+                position: relative;
+            }
+            .flx-mini-body {
+                padding: 0.35rem;
+                display: flex;
+                flex-wrap: wrap;
+                height: 100%;
+                position: relative;
+            }
+            .item:nth-child(1) {
+                width: 40%;
+                padding: 0.25rem;
+                min-height: 90%;
+            }
+            .item:nth-child(2) {
+                width: 59%;
+                padding: 0.25rem;
+                min-height: 90%;
+            }
+            .showRoom {
+                width: 100%;
+                height: 65%;
+                border: 3px solid #bfbfbf;
+                border-radius: 1rem;
+                text-align: center;
+                font-size: 10.13rem;
+                display: flex;
+                align-items: center;
+                overflow-y: auto;
+            }
+            #showRoom {
+                position: relative;
+                background-image: url('space.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;              
+            }
+
+            #showRoom div{
+                font-family: 'singleDay';
+            }
+            #boxElement {
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .boxItems {
+                width: 32%;
+                height: 2.5rem;
+                margin: 0.15rem;
+                margin-bottom: 0.5rem;
+                border: 2px solid #949494;
+                display: inline-block;
+                border-radius: 0.25rem;
+                text-align: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            .boxItems:hover {
+                background-color: rgb(92, 92, 92);
+            }
+            .nav-link {
+                background-color: rgb(170, 170, 170);
+            }
+            #hoverman {
+                display: none;
+                position: absolute;
+                padding: 0.5rem;
+                background: rgba(255, 252, 158, 0.75);
+                width: 99.5%;
+                top: 50%;
+                left: 0px;
+                text-align: center;
+                color: black;
+                filter: blur(0.5px);
+            }
+            #simpleTailBody{
+                width: 100%;
+                font-family: 'singleDay';
+            }
+            #simpleWeather{
+                position: fixed;
+                left: 0.5rem;
+                bottom: 0.3rem;
+            }            
+            #simpleTail{
+                position: fixed;
+                right: 0.5rem;
+                bottom: 0.3rem;
+            }                        
+            .rhdandnjsTmxkdlf{
+                background-color: #17a2b8;
+                text-align: center;
+                user-select: none;
+            }
+            .table{
+                width: 99%;
+            }
+            #bodies{
+                display: none;
+            }
+        </style>
+    </head>
+
+
+    <body id='bodies'>
+        <div class="flx-head">
+            <div class='title' title='made by Rts. If u want to contect me? then talk to KSJ teacher'>BY DRAWING OF LOTS</div>
+        </div>
+        <div class="flx-body">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">추첨</button>
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">설정 및 이력관리</button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+
+                <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class='flx-mini-body'>
+                        <div class='item' style="display: flex;flex-direction: column;">
+                            <div id='showRoom' class='showRoom'></div>
+                            <div style="height: 29%; display: flex;flex-direction: column-reverse;">
+                                <div id='hoverman'>버튼을 누르면 추첨을 시작 합니다</div>
+                                <button type="button" id='tootipes' class='btn btn-info ' style='height: 3rem;font-size: 1.5rem;' onclick="choiceNumber()">
+                                    <i class="fas fa-democrat"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class='item' id='boxElement' style="overflow-y: auto;max-height: 25.95rem"></div>
+
+                        <div class='item' id='simpleTailBody'>
+                            <div id='simpleWeather'></div>
+                            <div id='simpleTail'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                    <div style="font-weight: bold;">#1. 설정</div>
+                    <div style="width: 99%;height: auto;padding-left: 0.5rem;">
+                        <table class="table table-bordered" style ='box-shadow: 2px 2px 2px 2px rgb(255 255 255 / 20%);'>
+                            <tr>
+                                <td class="rhdandnjsTmxkdlf">인원</td>
+                                <td>
+                                    <input type="text" class="form-control" id='members' value="" style='font-size: 1.5rem;height : calc(1.5em + .1rem + 2px);'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="rhdandnjsTmxkdlf">관리</td>
+                                <td style="text-align: right;">
+                                    <button type="button" class="btn btn-primary" onclick="saveInfo()">설정적용</button>
+                                    <button type="button" class="btn btn-success" onclick="downloadData()">이력 다운로드</button>
+                                    <button type="button" class="btn btn-warning" onclick="clsHistory()">추첨 초기화</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="font-weight: bold;">#2. 이력</div>
+                    <div style="width: 99%;height: auto;padding-left: 0.5rem;max-height: 58%;overflow-y: auto;">
+                        <table class="table table-bordered historyTables" style ='box-shadow: 2px 2px 2px 2px rgb(255 255 255 / 20%);'>
+                            <colgroup>
+                                <col style="width: 11%;">
+                                <col style="width: 24%;">
+                                <col style="width: 65%;">
+                             </colgroup>
+                                                         
+                            <tr class="rhdandnjsTmxkdlf">
+                                <td>#</td>
+                                <td>번호</td>
+                                <td>기록 일자</td>
+                            </tr>
+                            <tbody id='historyTable'></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 컨펌용 모달 -->
+        <div id='confirm' class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: black;">질문</h5>
+                    </div>
+                    <div class="modal-body" id='displayTargets' style="color: black;">
+                        해당 내용으로 적용 합니까?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick='alterData()'>적용</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">닫기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 알림용 모달 -->
+        <div id='alertModal' class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: black;">완료</h5>
+                    </div>
+                    <div class="modal-body" id='alertDesc' style="color: black;">
+                        추첨을 완료하였습니다.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closealertModal()">닫기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>
+
+<script>
+    const url = 'http://api.openweathermap.org/data/2.5/weather?q=korea&appid=키값을 넣으세요&units=metric'
+    
+    fetch(url).then(response => response.json()).then(data => {
+        let {wind : {speed}, main} = data    
+        $('#simpleWeather').append(`
+            <i class="fas fa-cloud-sun"></i>
+            <span style="margin-right:0.21rem">${main.temp}℃</span>
+            <span style="font-size:12px;color:#cfcfcf;">체감 : ${main.feels_like}℃</span>
+        `)
+    })
+
+    function getDisplayDate(){
+        const today = new Date()
+        const yyyymmdd = `${today.getFullYear()}-${today.getMonth()+1<9?'0'+(today.getMonth()+1):today.getMonth()+1}-${today.getDate()<9?'0'+today.getDate():today.getDate()}`        
+        let hh = today.getHours()
+	    let mm = today.getMinutes()
+	    let ss = today.getSeconds()
+	    let hhmmss = [(hh>9 ? '' : '0') + hh, (mm>9 ? '' : '0') + mm, (ss>9 ? '' : '0') + ss ].join(':')
+        return yyyymmdd + ' ' + hhmmss
+    }
+    $('#simpleTail').text(getDisplayDate()) 
+
+    //하단에 시간을표시 합니다.
+    setInterval(() => {
+        $('#simpleTail').text(getDisplayDate())
+    }, 1000)
+
+    let current = [] // 현재 선택된 값 입니다
+    let interNum = 0 // Interval을 멈추기위한 변수
+    let inter = true // Interval을 위한 변수
+    let vanNumbers = [] // 뽑힌 데이터 목록 입니다
+    let goal = [] // 목표 입니다
+    const target = 1 // 뽑힐 개수
+    let desc
+    // 모달용 설명 변수 입니다
+
+    // #1. 박스를 만듭니다.
+    function makeBoxes() {
+        $('#boxElement').children().remove()
+        let menbers = $('#members').val()
+        for (let i = 0; i < menbers; i++) {
+
+            let check = vanNumbers.filter(arg => { // 이미 추첨된 데이터인지 조사합니다
+                let cknum = Number(arg.split(',')[0])
+                return cknum == (i + 1)
+            })[0]
+
+            let bgGray = 'background : none'
+            if (check)  bgGray = 'background : gray'
+
+            let isCur = current.filter(arg => arg == (i + 1))[0]
+            if (isCur)  bgGray = 'background : rgba(32,12,191,0.65)'
+
+            $('#boxElement').append(`<div class='boxItems' style="${bgGray}" onclick="showTimeHistory(${i+1})">${
+                i + 1
+            }</div>`)
+        }
+    }
+
+    // #2. 히스토리 데이터를 만듭니다
+    function buildHistoryTable() {
+        $('#historyTable').children().remove()
+        for (let i = vanNumbers.length-1; i >=0 ; i--) {
+            let van = vanNumbers[i]
+            if (van == '' || van.length == 0)  continue
+            let arr = van.split(',')
+            $('#historyTable').append(
+              `<tr style='text-align:center'>
+                <td>${ vanNumbers.length - i - 1}</td>
+                <td>${arr[0]}</td>
+                <td>${arr[1]}</td>
+              </tr>`
+            )
+        }
+    }
+
+
+    // #3. 추첨동작 이벤트 함수 입니다
+    function choiceNumber() {
+        let len = $('#members').val()
+        if (!inter)  return
+        if (vanNumbers.length - 1 == len) {
+            $('#alertDesc').text('추첨할 대상이 없습니다.\n 초기화를 하여 주세요.')
+            $('#alertModal').modal('show')
+            return
+        }
+        inter = false
+        $('#showRoom').children().remove()
+        dfs(len)
+    }
+
+    let buttonArray = [
+        '<i class="fas fa-grin"></i>',
+        '<i class="fas fa-grin-stars"></i>',
+        '<i class="fas fa-grin-alt"></i>',
+        '<i class="fas fa-grin-beam"></i>',
+        '<i class="fas fa-grin-squint"></i>',
+        '<i class="fas fa-grin-beam-sweat"></i>',
+        '<i class="fas fa-grin-hearts"></i>',
+        '<i class="fas fa-grin"></i>',
+        '<i class="fas fa-grin-beam"></i>',
+        '<i class="fas fa-grin-hearts"></i>',
+        '<i class="fas fa-grin-tears"></i>',
+        '<i class="fas fa-grin-tongue-wink"></i>',
+        '<i class="fas fa-grin-wink"></i>',
+        '<i class="fas fa-grin-stars"></i>',
+        '<i class="fas fa-grimace"></i>',
+    ]
+
+    buttonArray = [...buttonArray, ...buttonArray]
+
+    // #3-1. 위 함수에서 재귀호출을 담당할 함수 입니다.
+    function dfs(len) {
+
+        if (interNum <= 23) {  //23회동작합니다
+            let jbRandom = Math.random()
+            let num = Math.floor(jbRandom * len + 1) // 1~len
+            let interRandomNum = Math.floor(jbRandom * 10 + 1) + 40
+            let obj = $(`<div style="width : 99%;text-align:center;position:absolute">${num}</div>`)
+            obj.fadeIn(interRandomNum, function () {
+                obj.fadeOut(interRandomNum, function () {
+                    interNum += 1
+                    dfs(len)
+                })
+            })
+
+            $('.boxItems').each(function(){
+                let txt = Number($(this).text())
+                if(txt == num){
+                    $(this).css('border','2px solid yellow')
+                } else {
+                    $(this).css('border','2px solid #949494')
+                }
+            })
+
+            $('#tootipes').children().remove()
+            $('#tootipes').append(buttonArray[interNum])
+            $('#showRoom').append(obj)
+
+        } else {  //동작을 다 한경우 입니다
+            inter = true
+            interNum = 0
+            $('#showRoom').children().remove()
+
+            while (goal.length != target) {  //추첨된 배열에서의 값을 제외하여 랜덤값을 추출합니다
+                let jbRandom = Math.random()
+                let num = Math.floor(jbRandom * len + 1) 
+
+                let check = vanNumbers.filter(arg => {
+                    let cknum = Number(arg.split(',')[0])
+                    return cknum == num
+                })[0]
+
+                let check2 = goal.filter(arg => arg == num)[0]
+                if (! check && ! check2) {
+                    goal.push(num)
+                }
+            }
+
+            //완료한 데이터를 표출 합니다
+            setTimeout(() => {
+                $('#showRoom').children().remove()
+                for (let i = 0; i < goal.length; i++) {
+                    let obj = $(`<div style="width : 99%;text-align:center;font-weight:700">${ goal[i] }</div>`)
+                    obj.fadeIn(100, function () {})
+                    $('#showRoom').append(obj)
+                    current.push(goal[i])
+                }
+
+                $('#tootipes').children().remove()
+                $('#tootipes').append('<i class="fas fa-democrat"></i>')
+
+                $('#alertDesc').text('추첨을 완료 하였습니다.')
+                $('#alertModal').modal('show')
+
+                window.writeHistory.request("writeHistory", {
+                    goalList: goal,
+                    calback: (result) => {
+                        if (result && result.result) {
+                            goal = new Array()
+                            setTimeout(() => {
+                                buildHistoryAndRoom()
+                            }, 100)
+                        }
+                    }
+                })
+            }, 50)
+        }
+    }
+
+
+    // #4. 정보를 백그라운드로부터 가져 옵니다
+    function buildHistoryAndRoom() {
+        window.readHistory.request("readHistory", {
+            '': '',
+            calback: (res2) => {
+                if (res2 && res2.result) {
+                    vanNumbers = res2.result.split('\n')
+                    buildHistoryTable()
+                }
+                window.getIniData.request("getIniData", {
+                    '': '',
+                    calback: (result) => {
+                        if (result && result.result) {
+                            let data = result.result
+                            $('#members').val(data)
+                            makeBoxes()
+                        }
+                    }
+                })
+            }
+        })
+    }
+
+    buildHistoryAndRoom()
+
+    // #5. 정보를 수정합니다
+    function saveInfo() {
+        $('#displayTargets').text('인원수를 조정하시겠습니까?')
+        $('#confirm').modal('show')
+        confirmTodo = () => {
+            let len = $('#members').val()
+            window.insertInitData.request("insertInitData", {
+                len: len,
+                calback: (result) => {
+                    if (result && result.result) {
+                      $('.flx-body').fadeOut(600, () => {
+                            setTimeout(() => {
+                              location.reload()
+                            }, 100)
+                      })
+                    }
+                }
+            })
+        }
+    }
+
+    // #6. 히스토리를 제거 합니다
+    function clsHistory() {
+        $('#displayTargets').text('내역을 초기화 하시겠습니까?')
+        $('#confirm').modal('show')
+        confirmTodo = () => {
+            window.clearHistory.request("clearHistory", {
+                '': '',
+                calback: (result) => {
+                    if (result && result.result) {
+                        $('.flx-body').fadeOut(600, () => {
+                          setTimeout(() => {
+                              location.reload()
+                            }, 100)
+                        })
+                    }
+                }
+            })
+        }
+    }
+
+    // #7. 모달에서 사용하는 내용변경 함수 입니다
+    function alterData() {
+        confirmTodo()
+        $('#confirm').modal('hide')
+    }
+
+    // #8. 모달에서 사용하는 종료함수 입니다
+    function closeModal() {
+        $('#confirm').modal('hide')
+    }
+
+    // #9. 알림용 모달에서 사용하는 종료함수 입니다
+    function closealertModal() {
+        $('#alertModal').modal('hide')
+    }
+
+    // #10. 이력을 다운로드 받습니다
+    function downloadData() {
+        let csvContent = "data:text/csv;charset=utf-8,number,day\r\n"
+        let noDownload = false
+        vanNumbers.forEach(function (rowArray) {
+            if (rowArray != '' && rowArray.length > 0) {
+                csvContent += rowArray + "\r\n"
+                noDownload = true
+            }
+        })
+        if (! noDownload) {
+            $('#alertDesc').text('다운로드 받을 데이터가 없습니다.')
+            $('#alertModal').modal('show')
+            return
+        }
+        let encodedUri = encodeURI(csvContent)
+        let link = document.createElement("a")
+        link.setAttribute("href", encodedUri)
+        link.setAttribute("download", "history.csv")
+        document.body.appendChild(link)
+        link.click()
+    }
+
+    let isFade = false
+    $('#tootipes').mouseenter(function (e) {
+        if (!isFade) {
+            isFade = true
+            $('#hoverman').fadeIn(1000, function () {
+                $(this).fadeOut(1050, () => {
+                    $(this).attr('title','누르면 추첨합니다')
+                    setTimeout(() => {
+                        isFade = false
+                    }, 5000)
+                })
+            })
+        }
+
+    })
+
+
+    // #11. 박스아이템 클릭시 히스토리 시간을 표출 합니다.
+    function showTimeHistory(number){
+        
+        let check = vanNumbers.filter(arg => { // 이미 추첨된 데이터인지 조사합니다
+            let cknum = Number(arg.split(',')[0])
+            return cknum == (Number(number))
+        })[0]
+
+        if(!check) return
+        
+        let text = check.split(',')[1]
+        let fntSize 
+        let lineHiehgt
+        let bgColor
+        $('.boxItems').each(function(){
+            let num = Number($(this).text())
+            if(num == Number(number)){
+                fntSize = $(this).css('font-size')
+                lineHiehgt = $(this).css('line-height')
+                bgColor = $(this).css('background-color')
+
+                $(this).text(text).css({'font-size':'13px', 'line-height':'2.2rem','background-color':'rgba(143,53,19, 0.6)'})
+                setTimeout(() => {
+                    $(this).text(num).css({'font-size':fntSize, 'line-height':lineHiehgt,'background-color':bgColor})
+                }, 3200)
+            }
+        })
+    }
+
+    // #12. 인원값 설정시 문자 또는 큰 수가 오면 경고를 합니다
+    document.addEventListener('DOMContentLoaded',function(){
+        let backToVal = $('#members').val()
+        $('#members').change(function(){
+            let changedVal = $(this).val()
+            if(isNaN(changedVal)){
+                $('#members').val(backToVal)
+                $('#alertDesc').text('숫자만 입력해야 합니다.')
+                $('#alertModal').modal('show')                
+            } else if(Number(changedVal) > 3000 || Number(changedVal) < 2){
+                $('#members').val(backToVal)
+                $('#alertDesc').text('3천 이하 또는 2이상의 숫자만 입력해야 합니다.')
+                $('#alertModal').modal('show')                
+            } else {
+                backToVal = changedVal
+            }
+        })
+
+        $('#bodies').fadeIn(760,()=>{})
+    })
+</script>

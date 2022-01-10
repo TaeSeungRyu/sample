@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTDHTML4.0Transitional//EN">
+<html>
+
+    <head>
+        <title>Drawing lots</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" href="./fbxotmdvkqlzhs.ico"/>
+        <script src="js/jq.js"></script>
+        <script src="js/bts.js"></script>
+        <link href="css/bts.css" rel="stylesheet">
+        <link rel="stylesheet" href="font/css/all.css">
+        <style>
+            @font-face {
+                font-family: singleDay;
+                src: url('css/SingleDay-Regular.ttf');
+            }
+            html {
+                width: 100%;
+                height: 100%;
+                background-color: black;
+            }
+            body {
+                position: relative;
+                background-image: url('index.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 100%;
+                height: 100%;
+            }
+            #cover {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-content: stretch;
+            }
+            .flx-head {
+                font-size: 1.5rem;
+                color: #d7d7d7;
+                height: 100%;                
+                font-family: 'singleDay';
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: center;
+                padding: 1rem;
+                height: 12.45%;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                z-index: 5;
+            }  
+            .title {
+                user-select: none;
+                font-size: 3.05rem;
+                text-shadow: 1px 1px 1px rgb(173, 173, 173), 0 4px 1px rgba(0, 0, 0, 0.25), 4px 4px 5px rgba(0, 0, 0, 0.7), 0 0 7px rgba(0, 0, 0, 0.4);
+            }                      
+
+            #looper{
+                width: 100%;
+                height: 20%;
+                text-align: center;
+                position: fixed;
+                bottom: 1rem;
+                z-index: 23;
+            }
+
+
+            /* CSS */
+            .button-33 {
+                background-color: #c2fbd7;
+                border-radius: 8px;
+                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+                color: green;
+                cursor: pointer;
+                display: inline-block;
+                font-family: 'singleDay';
+                padding: 12px 25px;
+                text-align: center;
+                text-decoration: none;
+                transition: all 250ms;
+                border: 0;
+                font-size: 1.45rem;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+            }
+
+            .button-33:hover {
+                box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+                transform: scale(1.05) rotate(-3deg);
+            }
+            .alight{
+                width: 100%;
+                position: fixed;
+                bottom: 1.25rem;
+                text-align: center;
+                color:#b5b5b5;    
+                font-family: 'singleDay';
+                font-size: 1.25rem;
+            }
+
+            #lots{
+                width: 0px;
+                height: 0px;
+                border: none;
+            }
+        </style>
+    </head>
+
+
+    <body id='bodies'>
+        <div id='cover'>
+            <div class="flx-head">
+                <div class='title' title='made by Rts. If u want to contect me? then talk to KSJ teacher'>BY DRAWING OF LOTS</div>
+            </div>
+            <div id='looper'>
+                <button type="button" onclick="gotoMainPage()" class="button-33">시작하기</button>
+                <div class="alight">Made by Rts Copyright(C) 2022, All rights reserved</div>
+            </div>              
+            <div style="width: 100%;height: 100%;background-image: url('gifs.gif');opacity: 0.5;position: absolute;background-repeat: repeat;">  </div>                            
+        </div>
+    </body>
+
+</html>
+
+<script>  
+    function gotoMainPage(){
+        $('#bodies').fadeOut(1500,function(){
+            setTimeout(() => {
+                location.href = 'main.html' 
+            }, 150)
+        })        
+    }
+</script>
+

@@ -58,7 +58,7 @@ class RtsVideoEditor {
 
     //파일을 전송하여 분석 합니다
     getInformation(param, calback){
-        if(calback) calback.befor()
+        if(calback && calback.befor && typeof calback.befor == 'function') calback.befor()
         $(document).ready(()=>{
             $.ajax({
                 url : '/upload',
@@ -87,7 +87,7 @@ class RtsVideoEditor {
                 }, 
                 error : (error)=>{
                     console.log(error)
-                    if(calback) calback.done()
+                    if(calback && calback.done  && typeof calback.done == 'function') calback.done()
                 }
             })            
         })

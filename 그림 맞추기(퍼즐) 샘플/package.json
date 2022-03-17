@@ -1,0 +1,16 @@
+{
+  "name": "html_canvas_pj1",
+  "version": "1.0.0",
+  "description": "rts html canvas project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel serve index.html --global rts",
+    "build": "parcel build index.html --global rts"
+  },
+  "author": "RTS",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}

@@ -28,7 +28,7 @@ class DrawingCanvas{
         if(isNaN(x) || isNaN(y) || isNaN(width) || isNaN(height)) return;
         this.ctx.save();
         this.ctx.beginPath();
-        this.ctx.rect(0,0,width,height);
+        this.ctx.rect(x,y,width,height);
         if(option && option.fillColor) this.ctx.fillStyle = option.fillColor;
         if(option && option.fillColor) this.ctx.fill();
         if(option && option.lineWidth) this.ctx.lineWidth = option.lineWidth;
@@ -52,6 +52,27 @@ class DrawingCanvas{
             let y = event.clientY - canvas.parentElement.offsetTop || canvas.offsetTop;              
             calback({x,y}, event);
         });  
+    }
+
+    calculateRectPos(pos, dataArray){
+        let {x : x1, y : y1} = pos;
+        if(isNaN(x1) || isNaN(y1) ) return;
+
+        let result = false;
+        let obj = {};
+        dataArray.forEach((item, idx) => {
+            let start_x = item.x;
+            let end_x = item.x + item.boxWidth;
+            let start_y = item.y;
+            let end_y = item.y + item.boxHeight ;
+            if(x1 >= start_x && x1 <= end_x){ 
+                if(y1 >= start_y && y1 <= end_y){
+                    obj = {...item, index : idx};
+                    result = true;
+                }
+            }
+        });
+        return {result, object : obj};
     }
 }
 

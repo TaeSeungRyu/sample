@@ -7,6 +7,7 @@ const EVENT_TYPE = {
 
 class DrawingCanvas{
 
+    //생성자를 통해 캔버스 아이디를 받으며 context객체를 만듭니다.
     constructor(_id){
         this.canvas = document.getElementById(_id);
         this.ctx = this.canvas.getContext('2d');
@@ -22,6 +23,7 @@ class DrawingCanvas{
 
     clear(){
         this.ctx.clearRect(0, 0, this.width, this.height);
+        return this;
     }
 
     drawRect(x=null, y=null, width=null, height=null, option={}){
@@ -29,13 +31,14 @@ class DrawingCanvas{
         this.ctx.save();
         this.ctx.beginPath();
         this.ctx.rect(x,y,width,height);
-        if(option && option.fillColor) this.ctx.fillStyle = option.fillColor;
-        if(option && option.fillColor) this.ctx.fill();
-        if(option && option.lineWidth) this.ctx.lineWidth = option.lineWidth;
-        if(option && option.strokeColor) this.ctx.strokeStyle = option.strokeColor;
-        if(option && option.strokeColor) this.ctx.stroke();        
+        if(option.fillColor) this.ctx.fillStyle = option.fillColor;
+        if(option.fillColor) this.ctx.fill();
+        if(option.lineWidth) this.ctx.lineWidth = option.lineWidth;
+        if(option.strokeColor) this.ctx.strokeStyle = option.strokeColor;
+        if(option.strokeColor) this.ctx.stroke();        
         this.ctx.closePath();
         this.ctx.restore() ;
+        return this;
     }
 
     addEventListener(type, calback){
@@ -45,13 +48,14 @@ class DrawingCanvas{
                 isOk = true;
             }
         }
-        if(!isOk) return;
-        if(!calback || !(calback instanceof Function))return;
+        if(!isOk) return this;
+        if(!calback || !(calback instanceof Function)) return new Error("check your calback function");
         this.canvas.addEventListener(type, (event) =>{
             let x = event.clientX - canvas.parentElement.offsetLeft || canvas.offsetLeft;
             let y = event.clientY - canvas.parentElement.offsetTop || canvas.offsetTop;              
             calback({x,y}, event);
-        });  
+        }); 
+        return this; 
     }
 
     calculateRectPos(pos, dataArray){

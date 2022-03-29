@@ -21,12 +21,41 @@ class DrawingCanvas{
         return this.canvas.height;
     }    
 
+    //화면을 지웁니다.
     clear(){
         this.ctx.clearRect(0, 0, this.width, this.height);
         return this;
     }
 
-    drawRect(x=null, y=null, width=null, height=null, option={}){
+    //초기 이미지를 설정 합니다. Promise객체를 반환하게 합니다.
+    initImage(imgAddress){
+        return new Promise( (succ, fail) =>{
+            try {
+                let img = new Image();   //이미지 생성
+                img.src = imgAddress;
+                img.onload = ()=>{
+                    this.ctx.save();
+                    this.ctx.drawImage(img, 0 , 0, this.width, this.height);
+                    this.ctx.restore();            
+                    succ();                      
+                };                
+            } catch (error) {
+                fail(error);   
+            }
+        });
+    }
+
+    //이미지 범위를 계산 합니다.
+    calculateImage(array=[]){
+        return array.map( data => {
+            let imageData  = this.ctx.getImageData(data.x, data.y, data.boxWidth, data.boxHeight);
+            data.imgSrc = imageData;
+            return data;
+        });
+    }
+
+    //사각형을 그려줍니다.
+    drawRect(x=null, y=null, width=null, height=null, option={}, imgSrc=null){
         if(isNaN(x) || isNaN(y) || isNaN(width) || isNaN(height)) return;
         this.ctx.save();
         this.ctx.beginPath();
@@ -35,12 +64,16 @@ class DrawingCanvas{
         if(option.fillColor) this.ctx.fill();
         if(option.lineWidth) this.ctx.lineWidth = option.lineWidth;
         if(option.strokeColor) this.ctx.strokeStyle = option.strokeColor;
-        if(option.strokeColor) this.ctx.stroke();        
+        if(option.strokeColor) this.ctx.stroke();  
+        if(imgSrc){
+            this.ctx.putImageData(imgSrc, x, y); //기본 이미지 데이터를 넣어 줍니다.
+        }      
         this.ctx.closePath();
         this.ctx.restore() ;
         return this;
     }
 
+    //이벤트를 붙입니다.
     addEventListener(type, calback){
         let isOk = false;
         for(let _key in EVENT_TYPE){
@@ -58,6 +91,7 @@ class DrawingCanvas{
         return this; 
     }
 
+    //이벤트 범위에 마우스가 왔는지 계산 합니다.
     calculateRectPos(pos, dataArray){
         let {x : x1, y : y1} = pos;
         if(isNaN(x1) || isNaN(y1) ) return;
@@ -78,6 +112,22 @@ class DrawingCanvas{
         });
         return {result, object : obj};
     }
+ 
+    //해당 셔플코드의 문제는 x값과, y 값이 바뀐다는 것 이다. 다시 고려해보자!!
+    shuffle(array, calback) {
+        for (let index = array.length - 1; index > 0; index--) {
+          // 무작위 index 값을 만든다. (0 이상의 배열 길이 값)
+          const randomPosition = Math.floor(Math.random() * (index + 1));
+      
+          // 임시로 원본 값을 저장하고, randomPosition을 사용해 배열 요소를 섞는다.
+          const temporary = array[index];
+          array[index] = array[randomPosition];
+          array[randomPosition] = temporary;
+          if(calback && calback instanceof Function) {
+            calback();
+          }
+        }
+      }    
 }
 
 export {DrawingCanvas, EVENT_TYPE};

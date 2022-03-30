@@ -1,20 +1,20 @@
 import {DrawingCanvas, EVENT_TYPE} from './cnvs.js';
 
 
-let cnvs = new DrawingCanvas('canvas');
+let cnvs = new DrawingCanvas('canvas');  //캔버스 클래스를 가져 옵니다.
 let dataArray = [];
-const cubeSize = 4;
+const cubeSize = 4; //사각형 갯수입니다(가로4, 새로4 = 총 16)
 
-const gridOption = {fillColor : 'rgba(111,22,31,0.02)', strokeColor:'red', lineWidth : 2};
-const hoverOption = {fillColor : 'rgba(91,135,157,0.65)', strokeColor:'green', lineWidth : 1};
-const rightAnswerOption = {fillColor : 'rgba(51,134,111,0.5)', strokeColor:'blue', lineWidth : 2};
+const gridOption = {fillColor : 'rgba(111,22,31,0.02)', strokeColor:'red', lineWidth : 2}; //기본 사각형 색상 옵션입니다.
+const hoverOption = {fillColor : 'rgba(91,135,157,0.65)', strokeColor:'green', lineWidth : 1};  //드래그 이벤트 발생시 효과부여 옵션 입니다.
+const rightAnswerOption = {fillColor : 'rgba(51,134,111,0.5)', strokeColor:'blue', lineWidth : 2};  //정답시 칠할 색깔 옵션 입니다.
 
 let boxWidth = cnvs.width/cubeSize;
 let boxHeight = cnvs.height/cubeSize;
 
 
 
-cnvs.initImage('test.png').then( ()=>{
+cnvs.initImage('test.png').then( ()=>{  //이미지를 가져옵니다.
 
     //영역을 계산하는 함수 입니다. i와 j변수로 열과 행을 만들어 줍니다.
     function makeBox(calback){
@@ -37,18 +37,17 @@ cnvs.initImage('test.png').then( ()=>{
         cnvs.drawRect(pos.x, pos.y, boxWidth, boxHeight, gridOption);
     });
 
-    cnvs.calculateImage(dataArray);
+    cnvs.calculateImage(dataArray);  //이미지를 배열 데이터에 포함시킵니다.
 
     //이벤트를 정의 합니다.
     let isDown = false;
     let compareObject = {};
-    let goback = ()=>dataArray.forEach( arg=> {
+    let goback = ()=>dataArray.forEach( arg=> { //그릴때 사용할 공통 기능입니다.
         let fillOption = gridOption;
-        if(arg.newOption){
-            fillOption = arg.newOption;
-        }
+        if(arg.newOption) fillOption = arg.newOption;
         cnvs.drawRect(arg.x, arg.y, boxWidth, boxHeight, fillOption, arg.imgSrc); 
     });
+    
     cnvs.addEventListener(EVENT_TYPE.MOVE, pos=>{  //움직임 이벤트
         if(!isDown) return;
         cnvs.clear();
@@ -65,8 +64,8 @@ cnvs.initImage('test.png').then( ()=>{
 
         let {object : down} =compareObject.downObject;
 
-        if(down.index != upObject.index){
-            //#1.좌표 바꾸기
+        if(down.index != upObject.index){  //자기 자신에게 드래그앤드랍이 된 경우가 아니라면,
+            //#1.드래그하여 드랍된 이미지의 좌표를 바꿉니다.
             let {x : x1, y : y1} = dataArray[down.index];
             let {x : x2, y : y2} = dataArray[upObject.index];
 
@@ -103,7 +102,6 @@ cnvs.initImage('test.png').then( ()=>{
     const suffleButton = document.getElementById("suffle");
     suffleButton.addEventListener('click',()=>{
         cnvs.shuffle(dataArray,()=>{
-
             //좌표값을 인덱스 순서로 바꾸어 줍니다.
             makeBox( (pos, cursor)=>{
                 if(dataArray[cursor].origin == null){

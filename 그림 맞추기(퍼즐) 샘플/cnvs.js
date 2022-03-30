@@ -61,7 +61,7 @@ class DrawingCanvas{
         this.ctx.beginPath();
         this.ctx.rect(x,y,width,height);
         if(imgSrc){
-            this.ctx.putImageData(imgSrc, x, y); //기본 이미지 데이터를 넣어 줍니다.
+            this.ctx.putImageData(imgSrc, x, y); //이미지 데이터가 존재 한 다면 넣어 줍니다.
         }           
         if(option.fillColor) this.ctx.fillStyle = option.fillColor;
         if(option.fillColor) this.ctx.fill();
@@ -104,9 +104,9 @@ class DrawingCanvas{
             let end_x = item.x + item.boxWidth;
             let start_y = item.y;
             let end_y = item.y + item.boxHeight ;
-            if(x1 >= start_x && x1 <= end_x){ 
-                if(y1 >= start_y && y1 <= end_y){
-                    obj = {...item, index : idx};
+            if(x1 >= start_x && x1 <= end_x){ //마우스의 위치가 사각형 시작넓이부터 종료넓이 범위이면서, 
+                if(y1 >= start_y && y1 <= end_y){  //마우스의 위치가 사각형 시작높이부터 종료높이 범위라면,
+                    obj = {...item, index : idx};  //비교를 위해 배열의 순서인 값을 index 키로 하여 넣어 줍니다.
                     result = true;
                 }
             }
@@ -114,7 +114,7 @@ class DrawingCanvas{
         return {result, object : obj};
     }
  
-    //해당 셔플코드의 문제는 x값과, y 값이 바뀐다는 것 이다. 다시 고려해보자!!
+    //배열의 순서를 무작위로 바꾸어 줍니다.
     shuffle(array, calback) {
         for (let index = array.length - 1; index > 0; index--) {
           // 무작위 index 값을 만든다. (0 이상의 배열 길이 값)

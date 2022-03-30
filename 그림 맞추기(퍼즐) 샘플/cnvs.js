@@ -60,14 +60,15 @@ class DrawingCanvas{
         this.ctx.save();
         this.ctx.beginPath();
         this.ctx.rect(x,y,width,height);
+        if(imgSrc){
+            this.ctx.putImageData(imgSrc, x, y); //기본 이미지 데이터를 넣어 줍니다.
+        }           
         if(option.fillColor) this.ctx.fillStyle = option.fillColor;
         if(option.fillColor) this.ctx.fill();
         if(option.lineWidth) this.ctx.lineWidth = option.lineWidth;
         if(option.strokeColor) this.ctx.strokeStyle = option.strokeColor;
         if(option.strokeColor) this.ctx.stroke();  
-        if(imgSrc){
-            this.ctx.putImageData(imgSrc, x, y); //기본 이미지 데이터를 넣어 줍니다.
-        }      
+   
         this.ctx.closePath();
         this.ctx.restore() ;
         return this;

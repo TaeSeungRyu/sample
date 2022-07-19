@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Canvas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<style>
+    body{padding: 5%;text-align: center;}
+    canvas{border: 1px solid gray;border-radius: 3px;}
+</style>
+<body>
+    <canvas width='600' height='600' id='canvas'></canvas>
+    <button type='button' onclick="autoDrawing()">replay</button>
+    <canvas width='300' height='300' id='paper'></canvas>
+</body>
+</html>
+
+<script>    
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+   
+    var width = canvas.clientWidth;
+    var height = canvas.clientHeight;
+
+    let data = [
+        
+    ]
+
+    let savedArr = [
+
+    ]
+
+    let isDown = false;
+    canvas.addEventListener('mousedown', function (event) {
+        isDown = true;
+    }); 
+
+    canvas.addEventListener('mouseup', function (event) {
+        isDown = false;
+        if(data && data.length > 0){
+            savedArr[savedArr.length] = data
+            data = [ ]
+        }
+    });     
+
+    canvas.addEventListener('mousemove', function (event) {
+        var x1 = event.clientX - canvas.offsetLeft;
+        var y1 = event.clientY - canvas.offsetTop;
+        if(isDown){
+            data.push({x : x1, y : y1, rateX : x1/width, rateY : y1/height})
+            drawing()
+        }
+    }); 
+
+    function drawing(){
+        ctx.clearRect(0, 0, width, height)
+        ctx.lineWidth = 3;  
+        ctx.lineCap = 'round';    
+        ctx.lineJoin = 'round';  //효과        
+        if(savedArr.length > 0){
+            savedArr.forEach( (_item)=>{
+                ctx.save()
+                ctx.beginPath()
+                _item.forEach( function(savedData, idx){
+                    if(idx == 0){
+                        ctx.moveTo(savedData.x, savedData.y);
+                    }
+                    if(idx+1 != _item.length){
+                        ctx.lineTo(_item[idx+1].x, _item[idx+1].y);
+                    }
+                });
+                ctx.stroke()
+                ctx.closePath()
+                ctx.restore()     
+            })
+        }                
+        ctx.save()
+        ctx.beginPath()
+        ctx.lineWidth = 3;  
+        data.forEach( (_item, idx)=>{
+            if(idx == 0){
+                ctx.moveTo(_item.x, _item.y);
+            }
+            if(idx+1 != data.length){
+                ctx.lineTo(data[idx+1].x, data[idx+1].y);
+            }
+        })
+        ctx.stroke()          
+        ctx.closePath()
+        ctx.restore()
+    }
+
+    function autoDrawing(){
+        const cvs2 = document.getElementById('paper');
+        const ctx2 = cvs2.getContext('2d');
+        var width2 = cvs2.clientWidth;
+        var height2 = cvs2.clientHeight;
+        ctx2.lineWidth = 2;  
+        ctx2.lineCap = 'round';    
+        ctx2.lineJoin = 'round';  //효과
+        
+        if(savedArr.length > 0){
+
+            let index = 0  //가장 큰 인덱스
+            let drawingIdex = 0  //내부 데이터 인덱스
+
+            let clear = setInterval(() => {
+                ctx2.clearRect(0, 0, width2, height2)
+                savedArr.forEach( (data, idx1)=>{
+                    if(index >= idx1){
+                        ctx2.save()
+                        ctx2.beginPath()
+                        data.forEach( (item, idx2)=>{
+                            if(drawingIdex >=idx2 || index > idx1){
+                                if(idx2 == 0 ){
+                                    let xxx = item.rateX * width2
+                                    let yyy = item.rateY * height2
+                                    ctx2.moveTo(xxx, yyy);       
+                                } else if(drawingIdex < data.length) {
+                                    let xxx = item.rateX * width2
+                                    let yyy = item.rateY * height2                                  
+                                    ctx2.lineTo(xxx, yyy);
+                                } else {
+                                    index  = index + 1;  
+                                    drawingIdex = 0;        
+                                    if(index >= savedArr.length){
+                                        console.log('end')
+                                        clearInterval(clear)                       
+                                    }
+                                }
+                            }
+                        })
+                        ctx2.stroke() 
+                        ctx2.closePath()
+                        ctx2.restore()     
+                        drawingIdex++   
+                    }
+                });
+            }, 20);             
+
+
+
+        }        
+
+
+
+    }
+    
+</script>
+    

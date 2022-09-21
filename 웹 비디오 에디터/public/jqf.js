@@ -1,6 +1,5 @@
 /*
 * jQuery File Download Plugin v1.4.5
-*
 * http://www.johnculviner.com
 *
 * Copyright (c) 2013 - John Culviner

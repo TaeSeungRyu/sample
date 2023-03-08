@@ -4,6 +4,10 @@
 package kr.com.rts.proto;
 
 /**
+ * <pre>
+ *결과받는 객체1
+ * </pre>
+ *
  * Protobuf type {@code protocc.ResponseMessageStyle1}
  */
 public  final class ResponseMessageStyle1 extends
@@ -331,6 +335,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   *결과받는 객체1
+   * </pre>
+   *
    * Protobuf type {@code protocc.ResponseMessageStyle1}
    */
   public static final class Builder extends

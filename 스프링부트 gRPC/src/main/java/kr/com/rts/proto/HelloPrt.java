@@ -29,6 +29,11 @@ public final class HelloPrt {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocc_ResponseMessageStyle2_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocc_ResponseMessageStyle3_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocc_ResponseMessageStyle3_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -44,12 +49,15 @@ public final class HelloPrt {
       "\t\022\016\n\006status\030\002 \001(\t\"y\n\025ResponseMessageStyl" +
       "e2\022\016\n\006result\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022\022\n\nst" +
       "atusCode\030\003 \001(\002\022,\n\013yourRequest\030\004 \001(\0132\027.pr" +
-      "otocc.RequestMessage2\240\001\n\016MyProtoService\022" +
-      "F\n\013giveMeData1\022\027.protocc.RequestMessage\032" +
-      "\036.protocc.ResponseMessageStyle1\022F\n\013giveM" +
-      "eData2\022\027.protocc.RequestMessage\032\036.protoc" +
-      "c.ResponseMessageStyle2B\036\n\020kr.com.rts.pr" +
-      "otoB\010HelloPrtP\001b\006proto3"
+      "otocc.RequestMessage\"%\n\025ResponseMessageS" +
+      "tyle3\022\014\n\004file\030\003 \001(\0142\352\001\n\016MyProtoService\022F" +
+      "\n\013giveMeData1\022\027.protocc.RequestMessage\032\036" +
+      ".protocc.ResponseMessageStyle1\022F\n\013giveMe" +
+      "Data2\022\027.protocc.RequestMessage\032\036.protocc" +
+      ".ResponseMessageStyle2\022H\n\013giveMeData3\022\027." +
+      "protocc.RequestMessage\032\036.protocc.Respons" +
+      "eMessageStyle30\001B\036\n\020kr.com.rts.protoB\010He" +
+      "lloPrtP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -73,6 +81,12 @@ public final class HelloPrt {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocc_ResponseMessageStyle2_descriptor,
         new java.lang.String[] { "Result", "Status", "StatusCode", "YourRequest", });
+    internal_static_protocc_ResponseMessageStyle3_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_protocc_ResponseMessageStyle3_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocc_ResponseMessageStyle3_descriptor,
+        new java.lang.String[] { "File", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

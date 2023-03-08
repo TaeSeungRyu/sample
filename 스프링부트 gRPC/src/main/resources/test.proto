@@ -9,6 +9,7 @@ package protocc;
 service MyProtoService {
     rpc giveMeData1(RequestMessage) returns (ResponseMessageStyle1); //송신 및 수신용 메소드1
     rpc giveMeData2(RequestMessage) returns (ResponseMessageStyle2); //송신 및 수신용 메소드2
+    rpc giveMeData3(RequestMessage) returns (stream ResponseMessageStyle3); //송신 및 수신용 메소드2
 }
 
 message RequestMessage { //요청하는 객체
@@ -28,5 +29,9 @@ message ResponseMessageStyle2 { //결과받는 객체2
     string status = 2;
     float statusCode = 3;
     RequestMessage yourRequest = 4;
+}
+
+message ResponseMessageStyle3 { //결과받는 객체2
+    bytes file = 3;
 }
 

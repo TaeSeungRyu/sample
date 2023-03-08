@@ -1,25 +1,13 @@
 package kr.com.rts.proto;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.15.0)",
+    value = "by gRPC proto compiler (version 1.53.0)",
     comments = "Source: test.proto")
+@io.grpc.stub.annotations.GrpcGenerated
 public final class MyProtoServiceGrpc {
 
   private MyProtoServiceGrpc() {}
@@ -41,22 +29,21 @@ public final class MyProtoServiceGrpc {
     if ((getGiveMeData1Method = MyProtoServiceGrpc.getGiveMeData1Method) == null) {
       synchronized (MyProtoServiceGrpc.class) {
         if ((getGiveMeData1Method = MyProtoServiceGrpc.getGiveMeData1Method) == null) {
-          MyProtoServiceGrpc.getGiveMeData1Method = getGiveMeData1Method = 
+          MyProtoServiceGrpc.getGiveMeData1Method = getGiveMeData1Method =
               io.grpc.MethodDescriptor.<kr.com.rts.proto.RequestMessage, kr.com.rts.proto.ResponseMessageStyle1>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "protocc.MyProtoService", "giveMeData1"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "giveMeData1"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   kr.com.rts.proto.RequestMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   kr.com.rts.proto.ResponseMessageStyle1.getDefaultInstance()))
-                  .setSchemaDescriptor(new MyProtoServiceMethodDescriptorSupplier("giveMeData1"))
-                  .build();
-          }
+              .setSchemaDescriptor(new MyProtoServiceMethodDescriptorSupplier("giveMeData1"))
+              .build();
         }
-     }
-     return getGiveMeData1Method;
+      }
+    }
+    return getGiveMeData1Method;
   }
 
   private static volatile io.grpc.MethodDescriptor<kr.com.rts.proto.RequestMessage,
@@ -73,29 +60,66 @@ public final class MyProtoServiceGrpc {
     if ((getGiveMeData2Method = MyProtoServiceGrpc.getGiveMeData2Method) == null) {
       synchronized (MyProtoServiceGrpc.class) {
         if ((getGiveMeData2Method = MyProtoServiceGrpc.getGiveMeData2Method) == null) {
-          MyProtoServiceGrpc.getGiveMeData2Method = getGiveMeData2Method = 
+          MyProtoServiceGrpc.getGiveMeData2Method = getGiveMeData2Method =
               io.grpc.MethodDescriptor.<kr.com.rts.proto.RequestMessage, kr.com.rts.proto.ResponseMessageStyle2>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "protocc.MyProtoService", "giveMeData2"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "giveMeData2"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   kr.com.rts.proto.RequestMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   kr.com.rts.proto.ResponseMessageStyle2.getDefaultInstance()))
-                  .setSchemaDescriptor(new MyProtoServiceMethodDescriptorSupplier("giveMeData2"))
-                  .build();
-          }
+              .setSchemaDescriptor(new MyProtoServiceMethodDescriptorSupplier("giveMeData2"))
+              .build();
         }
-     }
-     return getGiveMeData2Method;
+      }
+    }
+    return getGiveMeData2Method;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<kr.com.rts.proto.RequestMessage,
+      kr.com.rts.proto.ResponseMessageStyle3> getGiveMeData3Method;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "giveMeData3",
+      requestType = kr.com.rts.proto.RequestMessage.class,
+      responseType = kr.com.rts.proto.ResponseMessageStyle3.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<kr.com.rts.proto.RequestMessage,
+      kr.com.rts.proto.ResponseMessageStyle3> getGiveMeData3Method() {
+    io.grpc.MethodDescriptor<kr.com.rts.proto.RequestMessage, kr.com.rts.proto.ResponseMessageStyle3> getGiveMeData3Method;
+    if ((getGiveMeData3Method = MyProtoServiceGrpc.getGiveMeData3Method) == null) {
+      synchronized (MyProtoServiceGrpc.class) {
+        if ((getGiveMeData3Method = MyProtoServiceGrpc.getGiveMeData3Method) == null) {
+          MyProtoServiceGrpc.getGiveMeData3Method = getGiveMeData3Method =
+              io.grpc.MethodDescriptor.<kr.com.rts.proto.RequestMessage, kr.com.rts.proto.ResponseMessageStyle3>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "giveMeData3"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  kr.com.rts.proto.RequestMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  kr.com.rts.proto.ResponseMessageStyle3.getDefaultInstance()))
+              .setSchemaDescriptor(new MyProtoServiceMethodDescriptorSupplier("giveMeData3"))
+              .build();
+        }
+      }
+    }
+    return getGiveMeData3Method;
   }
 
   /**
    * Creates a new async stub that supports all call types for the service
    */
   public static MyProtoServiceStub newStub(io.grpc.Channel channel) {
-    return new MyProtoServiceStub(channel);
+    io.grpc.stub.AbstractStub.StubFactory<MyProtoServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<MyProtoServiceStub>() {
+        @java.lang.Override
+        public MyProtoServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new MyProtoServiceStub(channel, callOptions);
+        }
+      };
+    return MyProtoServiceStub.newStub(factory, channel);
   }
 
   /**
@@ -103,7 +127,14 @@ public final class MyProtoServiceGrpc {
    */
   public static MyProtoServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new MyProtoServiceBlockingStub(channel);
+    io.grpc.stub.AbstractStub.StubFactory<MyProtoServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<MyProtoServiceBlockingStub>() {
+        @java.lang.Override
+        public MyProtoServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new MyProtoServiceBlockingStub(channel, callOptions);
+        }
+      };
+    return MyProtoServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
@@ -111,7 +142,14 @@ public final class MyProtoServiceGrpc {
    */
   public static MyProtoServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new MyProtoServiceFutureStub(channel);
+    io.grpc.stub.AbstractStub.StubFactory<MyProtoServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<MyProtoServiceFutureStub>() {
+        @java.lang.Override
+        public MyProtoServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new MyProtoServiceFutureStub(channel, callOptions);
+        }
+      };
+    return MyProtoServiceFutureStub.newStub(factory, channel);
   }
 
   /**
@@ -119,144 +157,196 @@ public final class MyProtoServiceGrpc {
   public static abstract class MyProtoServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *송신 및 수신용 메소드1
+     * </pre>
      */
     public void giveMeData1(kr.com.rts.proto.RequestMessage request,
         io.grpc.stub.StreamObserver<kr.com.rts.proto.ResponseMessageStyle1> responseObserver) {
-      asyncUnimplementedUnaryCall(getGiveMeData1Method(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGiveMeData1Method(), responseObserver);
     }
 
     /**
+     * <pre>
+     *송신 및 수신용 메소드2
+     * </pre>
      */
     public void giveMeData2(kr.com.rts.proto.RequestMessage request,
         io.grpc.stub.StreamObserver<kr.com.rts.proto.ResponseMessageStyle2> responseObserver) {
-      asyncUnimplementedUnaryCall(getGiveMeData2Method(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGiveMeData2Method(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *송신 및 수신용 메소드2
+     * </pre>
+     */
+    public void giveMeData3(kr.com.rts.proto.RequestMessage request,
+        io.grpc.stub.StreamObserver<kr.com.rts.proto.ResponseMessageStyle3> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGiveMeData3Method(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getGiveMeData1Method(),
-            asyncUnaryCall(
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 kr.com.rts.proto.RequestMessage,
                 kr.com.rts.proto.ResponseMessageStyle1>(
                   this, METHODID_GIVE_ME_DATA1)))
           .addMethod(
             getGiveMeData2Method(),
-            asyncUnaryCall(
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 kr.com.rts.proto.RequestMessage,
                 kr.com.rts.proto.ResponseMessageStyle2>(
                   this, METHODID_GIVE_ME_DATA2)))
+          .addMethod(
+            getGiveMeData3Method(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                kr.com.rts.proto.RequestMessage,
+                kr.com.rts.proto.ResponseMessageStyle3>(
+                  this, METHODID_GIVE_ME_DATA3)))
           .build();
     }
   }
 
   /**
    */
-  public static final class MyProtoServiceStub extends io.grpc.stub.AbstractStub<MyProtoServiceStub> {
-    private MyProtoServiceStub(io.grpc.Channel channel) {
-      super(channel);
-    }
-
-    private MyProtoServiceStub(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+  public static final class MyProtoServiceStub extends io.grpc.stub.AbstractAsyncStub<MyProtoServiceStub> {
+    private MyProtoServiceStub(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected MyProtoServiceStub build(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+    protected MyProtoServiceStub build(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new MyProtoServiceStub(channel, callOptions);
     }
 
     /**
+     * <pre>
+     *송신 및 수신용 메소드1
+     * </pre>
      */
     public void giveMeData1(kr.com.rts.proto.RequestMessage request,
         io.grpc.stub.StreamObserver<kr.com.rts.proto.ResponseMessageStyle1> responseObserver) {
-      asyncUnaryCall(
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGiveMeData1Method(), getCallOptions()), request, responseObserver);
     }
 
     /**
+     * <pre>
+     *송신 및 수신용 메소드2
+     * </pre>
      */
     public void giveMeData2(kr.com.rts.proto.RequestMessage request,
         io.grpc.stub.StreamObserver<kr.com.rts.proto.ResponseMessageStyle2> responseObserver) {
-      asyncUnaryCall(
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGiveMeData2Method(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *송신 및 수신용 메소드2
+     * </pre>
+     */
+    public void giveMeData3(kr.com.rts.proto.RequestMessage request,
+        io.grpc.stub.StreamObserver<kr.com.rts.proto.ResponseMessageStyle3> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getGiveMeData3Method(), getCallOptions()), request, responseObserver);
     }
   }
 
   /**
    */
-  public static final class MyProtoServiceBlockingStub extends io.grpc.stub.AbstractStub<MyProtoServiceBlockingStub> {
-    private MyProtoServiceBlockingStub(io.grpc.Channel channel) {
-      super(channel);
-    }
-
-    private MyProtoServiceBlockingStub(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+  public static final class MyProtoServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<MyProtoServiceBlockingStub> {
+    private MyProtoServiceBlockingStub(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected MyProtoServiceBlockingStub build(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+    protected MyProtoServiceBlockingStub build(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new MyProtoServiceBlockingStub(channel, callOptions);
     }
 
     /**
+     * <pre>
+     *송신 및 수신용 메소드1
+     * </pre>
      */
     public kr.com.rts.proto.ResponseMessageStyle1 giveMeData1(kr.com.rts.proto.RequestMessage request) {
-      return blockingUnaryCall(
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGiveMeData1Method(), getCallOptions(), request);
     }
 
     /**
+     * <pre>
+     *송신 및 수신용 메소드2
+     * </pre>
      */
     public kr.com.rts.proto.ResponseMessageStyle2 giveMeData2(kr.com.rts.proto.RequestMessage request) {
-      return blockingUnaryCall(
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGiveMeData2Method(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *송신 및 수신용 메소드2
+     * </pre>
+     */
+    public java.util.Iterator<kr.com.rts.proto.ResponseMessageStyle3> giveMeData3(
+        kr.com.rts.proto.RequestMessage request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getGiveMeData3Method(), getCallOptions(), request);
     }
   }
 
   /**
    */
-  public static final class MyProtoServiceFutureStub extends io.grpc.stub.AbstractStub<MyProtoServiceFutureStub> {
-    private MyProtoServiceFutureStub(io.grpc.Channel channel) {
-      super(channel);
-    }
-
-    private MyProtoServiceFutureStub(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+  public static final class MyProtoServiceFutureStub extends io.grpc.stub.AbstractFutureStub<MyProtoServiceFutureStub> {
+    private MyProtoServiceFutureStub(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected MyProtoServiceFutureStub build(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+    protected MyProtoServiceFutureStub build(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new MyProtoServiceFutureStub(channel, callOptions);
     }
 
     /**
+     * <pre>
+     *송신 및 수신용 메소드1
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<kr.com.rts.proto.ResponseMessageStyle1> giveMeData1(
         kr.com.rts.proto.RequestMessage request) {
-      return futureUnaryCall(
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGiveMeData1Method(), getCallOptions()), request);
     }
 
     /**
+     * <pre>
+     *송신 및 수신용 메소드2
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<kr.com.rts.proto.ResponseMessageStyle2> giveMeData2(
         kr.com.rts.proto.RequestMessage request) {
-      return futureUnaryCall(
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGiveMeData2Method(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_GIVE_ME_DATA1 = 0;
   private static final int METHODID_GIVE_ME_DATA2 = 1;
+  private static final int METHODID_GIVE_ME_DATA3 = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -282,6 +372,10 @@ public final class MyProtoServiceGrpc {
         case METHODID_GIVE_ME_DATA2:
           serviceImpl.giveMeData2((kr.com.rts.proto.RequestMessage) request,
               (io.grpc.stub.StreamObserver<kr.com.rts.proto.ResponseMessageStyle2>) responseObserver);
+          break;
+        case METHODID_GIVE_ME_DATA3:
+          serviceImpl.giveMeData3((kr.com.rts.proto.RequestMessage) request,
+              (io.grpc.stub.StreamObserver<kr.com.rts.proto.ResponseMessageStyle3>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -346,6 +440,7 @@ public final class MyProtoServiceGrpc {
               .setSchemaDescriptor(new MyProtoServiceFileDescriptorSupplier())
               .addMethod(getGiveMeData1Method())
               .addMethod(getGiveMeData2Method())
+              .addMethod(getGiveMeData3Method())
               .build();
         }
       }

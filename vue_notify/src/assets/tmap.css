@@ -1,0 +1,86 @@
+.tmap-form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+.tmap-form-item{
+    color: white;
+    padding: .5rem 1rem .5rem 1rem;
+    flex-grow: 1;
+    background: #191c24;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+    .tmap-form-item-head {
+        width: fit-content;
+        word-wrap: break-word;
+    }
+}
+
+.tmap-form-item-head{
+    padding: 0.4rem;
+}
+.pl-1{
+    padding-left: 1rem;
+}
+.mb-1{
+    margin-bottom: 1rem;
+}
+.ml-1{
+    margin-left: 1rem !important;
+}
+.tmap div{
+    border-radius: 5px;
+}
+.btn{
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    margin: 0 0.1rem 0 0.1rem;
+    background: #0453bc;
+    border: 1px solid #0453bc;
+    border-radius: .25rem;
+    color: white;        
+}
+
+.btn:hover{
+    outline: 2px solid #0453bc;
+    cursor: pointer;
+    color: rgb(221, 221, 221);
+}
+.btn-green{
+    background: #008111;
+    border: 1px solid #008111;
+}
+
+.btn-green:hover{
+    outline: 2px solid #008111;
+}
+
+.btn-red{
+    background: #c91212;
+    border: 1px solid #c91212;    
+}
+.btn-red:hover{
+    outline: 2px solid #c91212;
+}
+
+
+.tmap-explain{
+    width: max-content;
+    text-align: center;
+    color: black;
+    padding: 2px;
+    background: white;
+}
+
+.searchResultClass{
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.searchResultClass:hover{
+    color: yellowgreen;
+}
